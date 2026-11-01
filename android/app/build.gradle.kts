@@ -22,8 +22,10 @@ android {
         versionName = flutter.versionName
     }
 
-    buildTypes {
+        buildTypes {
         release {
+            isMinifyEnabled = false
+            isShrinkResources = false
             signingConfig = signingConfigs.getByName("debug")
         }
     }
