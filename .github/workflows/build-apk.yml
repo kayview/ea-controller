@@ -11,16 +11,12 @@ jobs:
           java-version: '17'
       - uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.24.0'
+          flutter-version: '3.35.4'
           channel: 'stable'
-      - name: Doctor
-        run: flutter doctor -v
-      - name: Get deps
-        run: flutter pub get
-      - name: Build APK
-        run: flutter build apk --release --verbose
+      - run: flutter doctor -v
+      - run: flutter pub get
+      - run: flutter build apk --release --verbose
       - uses: actions/upload-artifact@v4
         with:
           name: ambient-apk
           path: build/app/outputs/flutter-apk/app-release.apk
-          if-no-files-found: error
